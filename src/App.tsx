@@ -83,7 +83,7 @@ function App() {
             exit={{ y: "-100%" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
           >
-            <div className="nav-logo" style={{ position: 'absolute', top: '2vw', left: '2vw' }}>MLSC KBTCOE</div>
+            <div className="nav-logo" style={{ position: 'absolute', top: '2vw', left: '2vw' }}>MSC KBTCOE</div>
             <div className="nav-menu-btn" style={{ position: 'absolute', top: '2vw', right: '2vw' }} onClick={() => setMenuOpen(false)}>CLOSE</div>
 
             {['ABOUT', 'EVENTS', 'PROJECTS', 'COMMUNITY', 'TEAM'].map((item, i) => (
@@ -147,7 +147,7 @@ function App() {
           >
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80" alt="Community" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}>
-              <div className="t-large" style={{ color: 'white', textShadow: '0 10px 30px rgba(0,0,0,0.5)', whiteSpace: 'nowrap' }}>THIS IS MLSC</div>
+              <div className="t-large" style={{ color: 'white', textShadow: '0 10px 30px rgba(0,0,0,0.5)', whiteSpace: 'nowrap' }}>THIS IS MSC</div>
             </div>
           </motion.div>
         </div>
@@ -229,7 +229,7 @@ function App() {
 
         {/* SCENE 08: PEOPLE */}
         <div className="scene" style={{ padding: '10vw 4vw' }}>
-          <div className="t-large" style={{ marginBottom: '8vw' }}>THE<br />PEOPLE<br />BEHIND<br />MLSC</div>
+          <div className="t-large" style={{ marginBottom: '8vw' }}>THE<br />PEOPLE<br />BEHIND<br />MSC</div>
           {people.map((p, i) => (
             <div
               key={i}
@@ -269,7 +269,7 @@ function App() {
               onMouseEnter={() => setCursorState({ active: true, text: 'JOIN', img: null })}
               onMouseLeave={() => setCursorState({ active: false, text: '', img: null })}
             >
-              JOIN MLSC →
+              JOIN MSC →
             </div>
           </div>
         </div>
