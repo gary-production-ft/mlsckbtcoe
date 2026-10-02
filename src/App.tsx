@@ -10,6 +10,7 @@ import Navigation from './components/Navigation';
 import Preloader from './components/Preloader';
 import Home from './pages/Home';
 import GenericPage from './pages/GenericPage';
+import PlasmaBackground from './components/PlasmaBackground';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <CursorProvider>
+      <PlasmaBackground />
       <Router>
         <Cursor />
         <Navigation />
