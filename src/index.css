@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #050505;
+  --fg: #f4f4f4;
+  --accent: #0078d4;
+  --line: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
+  background: var(--fg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.3s ease, border-radius 0.3s ease;
+  mix-blend-mode: difference;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cursor.active {
+  width: 80px; height: 80px;
+  background: transparent;
+  border: 1px solid var(--fg);
+  mix-blend-mode: normal;
+}
+
+.cursor.image-mode {
+  width: 300px; height: 400px;
+  border-radius: 0;
+  border: none;
+  background: var(--bg);
+  mix-blend-mode: normal;
+}
+
+.cursor-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: var(--fg);
+  position: absolute;
+  z-index: 2;
+}
+
+.cursor.active .cursor-text {
+  opacity: 1;
+}
+
+.cursor-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cursor.image-mode .cursor-img {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .cursor { display: none; }
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  padding: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.nav-logo, .nav-menu-btn {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Fullscreen Menu */
+.menu-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: var(--bg);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5vw;
+}
+
+.menu-link {
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 2vh;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Typography Classes */
+.t-giant {
+  font-size: clamp(5rem, 18vw, 25rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.t-large {
+  font-size: clamp(3rem, 10vw, 15rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.t-medium {
+  font-size: clamp(1.5rem, 4vw, 5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.t-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Scene Layouts */
+.scene {
+  position: relative;
+  width: 100%;
+}
+
+.sticky-container {
+  height: 300vh;
+  position: relative;
+}
+
+.sticky-content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Event / Project Rows */
+.editorial-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 6vw 2vw;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  cursor: pointer;
+}
+
+.editorial-row:hover .row-title {
+  color: var(--accent);
+  transform: translateX(2vw);
+}
+
+.row-title {
+  font-size: clamp(3rem, 9vw, 12rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.row-meta {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+/* People List */
+.person-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.person-row:hover .person-name {
+  color: var(--accent);
+  transform: translateX(1vw);
+}
+
+.person-name {
+  font-size: clamp(2rem, 5vw, 7rem);
+  font-weight: 700;
+  transition: all 0.5s ease;
+}
+
+/* Social Grid */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2vw;
+  padding: 10vw 2vw;
+}
+
+.social-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hidden UI placeholders */
+.ph-img {
+  background: #222;
+  position: relative;
+  overflow: hidden;
+}
+.ph-img::after {
+  content: "IMAGE PLACEHOLDER";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  color: #555;
+  white-space: nowrap;
+}
