@@ -10,7 +10,7 @@ import Navigation from './components/Navigation';
 import Preloader from './components/Preloader';
 import Home from './pages/Home';
 import GenericPage from './pages/GenericPage';
-import PlasmaBackground from './components/PlasmaBackground';
+import PixelSnow from './components/PixelSnow';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,18 @@ function App() {
 
   return (
     <CursorProvider>
-      <PlasmaBackground />
+      <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
+        <PixelSnow 
+          color="#ffffff"
+          flakeSize={0.01}
+          minFlakeSize={1.25}
+          pixelResolution={200}
+          speed={1.25}
+          density={0.3}
+          direction={125}
+          brightness={1}
+        />
+      </div>
       <Router>
         <Cursor />
         <Navigation />
