@@ -10,7 +10,6 @@ const events = [
 ];
 
 const projects = [
-  { id: '01', title: 'SMRITI SAATHI', meta: 'AI / ML / FLUTTER', img: 'https://images.unsplash.com/photo-1555949963-aa79dcee57d5?w=800&q=80' },
   { id: '02', title: 'CYBER DEFENDER', meta: 'SECURITY / PYTHON', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80' },
 ];
 
