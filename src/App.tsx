@@ -32,7 +32,7 @@ function App() {
 
     const updateMouse = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', updateMouse);
-    
+
     return () => { lenis.destroy(); window.removeEventListener('mousemove', updateMouse); };
   }, []);
 
@@ -59,7 +59,7 @@ function App() {
   return (
     <>
       {/* Custom Cursor */}
-      <motion.div 
+      <motion.div
         className={`cursor ${cursorState.active ? 'active' : ''} ${cursorState.img ? 'image-mode' : ''}`}
         animate={{ x: mousePos.x, y: mousePos.y }}
         transition={{ type: 'tween', ease: 'linear', duration: 0 }}
@@ -70,13 +70,13 @@ function App() {
 
       {/* Navigation */}
       <nav className="nav">
-        <div className="nav-logo">MLSC KBTCOE</div>
+        <div className="nav-logo">MSC KBTCOE</div>
         <div className="nav-menu-btn" onClick={() => setMenuOpen(true)}>MENU</div>
       </nav>
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div 
+          <motion.div
             className="menu-overlay"
             initial={{ y: "-100%" }}
             animate={{ y: "0%" }}
@@ -85,10 +85,10 @@ function App() {
           >
             <div className="nav-logo" style={{ position: 'absolute', top: '2vw', left: '2vw' }}>MLSC KBTCOE</div>
             <div className="nav-menu-btn" style={{ position: 'absolute', top: '2vw', right: '2vw' }} onClick={() => setMenuOpen(false)}>CLOSE</div>
-            
+
             {['ABOUT', 'EVENTS', 'PROJECTS', 'COMMUNITY', 'TEAM'].map((item, i) => (
-              <motion.div 
-                key={item} 
+              <motion.div
+                key={item}
                 className="menu-link"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -108,13 +108,13 @@ function App() {
           <div className="sticky-content">
             <motion.div style={{ opacity: heroOpacity, display: 'flex', flexDirection: 'column', padding: '0 4vw' }}>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div className="t-meta" style={{ width: '30%', textAlign: 'left' }}>MICROSOFT LEARN<br/>STUDENT COMMUNITY</div>
+                <div className="t-meta" style={{ width: '30%', textAlign: 'left' }}>MICROSOFT LEARN<br />STUDENT COMMUNITY</div>
               </div>
-              
-              <motion.div className="t-giant" style={{ x: mlscX }}>MLSC</motion.div>
-              
+
+              <motion.div className="t-giant" style={{ x: mlscX }}>MSC</motion.div>
+
               <motion.div className="t-giant" style={{ x: kbtcoeX, textAlign: 'right', marginTop: '-5vw' }}>KBTCOE</motion.div>
-              
+
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '4vw' }}>
                 <div className="t-meta">SCROLL →</div>
               </div>
@@ -141,8 +141,8 @@ function App() {
 
         {/* SCENE 03: IMAGE REVEAL */}
         <div ref={imageRevealRef} className="scene" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <motion.div 
-            style={{ width: imgWidth, height: '70vh', position: 'relative' }} 
+          <motion.div
+            style={{ width: imgWidth, height: '70vh', position: 'relative' }}
             className="ph-img"
           >
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80" alt="Community" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -160,7 +160,7 @@ function App() {
               <div className="t-giant">500+</div>
               <div className="t-meta" style={{ marginTop: '2vw' }}>STUDENTS LEARNING TOGETHER</div>
             </motion.div>
-            
+
             {/* Stat 2 */}
             <motion.div style={{ y: useTransform(statsProgress, [0.33, 0.66, 0.99], ["100%", "0%", "-100%"]), opacity: useTransform(statsProgress, [0.33, 0.66, 0.99], [0, 1, 0]), position: 'absolute', top: '50%', right: '4vw', transform: 'translateY(-50%)', textAlign: 'right' }}>
               <div className="t-giant">30+</div>
@@ -173,15 +173,15 @@ function App() {
         <div className="scene" style={{ padding: '10vw 0' }}>
           <div className="t-meta" style={{ padding: '0 4vw', marginBottom: '6vw' }}>[ OUR EVENTS ]</div>
           {events.map((ev) => (
-            <div 
-              key={ev.id} 
+            <div
+              key={ev.id}
               className="editorial-row"
               onMouseEnter={() => setCursorState({ active: true, text: 'VIEW', img: ev.img })}
               onMouseLeave={() => setCursorState({ active: false, text: '', img: null })}
             >
               <div className="t-medium" style={{ width: '10vw', paddingLeft: '4vw' }}>{ev.id}</div>
               <div className="row-title" style={{ flex: 1 }}>
-                {ev.title.split(' ').map((w, i) => <React.Fragment key={i}>{w}<br/></React.Fragment>)}
+                {ev.title.split(' ').map((w, i) => <React.Fragment key={i}>{w}<br /></React.Fragment>)}
               </div>
               <div className="t-meta" style={{ width: '20vw', paddingRight: '4vw' }}>
                 {ev.meta.split(' / ').map((m, i) => <div key={i}>{m}</div>)}
@@ -194,8 +194,8 @@ function App() {
         <div className="scene" style={{ padding: '10vw 0' }}>
           <div className="t-meta" style={{ padding: '0 4vw', marginBottom: '6vw' }}>[ PROJECTS ]</div>
           {projects.map((proj) => (
-            <div 
-              key={proj.id} 
+            <div
+              key={proj.id}
               className="editorial-row"
               onMouseEnter={() => setCursorState({ active: true, text: 'OPEN', img: proj.img })}
               onMouseLeave={() => setCursorState({ active: false, text: '', img: null })}
@@ -212,7 +212,7 @@ function App() {
         {/* SCENE 07: HORIZONTAL SCROLL (TECHNOLOGY) */}
         <div ref={techRef} className="scene sticky-container" style={{ height: '300vh' }}>
           <div className="sticky-content">
-            <motion.div 
+            <motion.div
               style={{ x: techX, display: 'flex', whiteSpace: 'nowrap', gap: '8vw', paddingLeft: '4vw' }}
               className="t-large"
             >
@@ -229,10 +229,10 @@ function App() {
 
         {/* SCENE 08: PEOPLE */}
         <div className="scene" style={{ padding: '10vw 4vw' }}>
-          <div className="t-large" style={{ marginBottom: '8vw' }}>THE<br/>PEOPLE<br/>BEHIND<br/>MLSC</div>
+          <div className="t-large" style={{ marginBottom: '8vw' }}>THE<br />PEOPLE<br />BEHIND<br />MLSC</div>
           {people.map((p, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="person-row"
               onMouseEnter={() => setCursorState({ active: true, text: 'VIEW', img: p.img })}
               onMouseLeave={() => setCursorState({ active: false, text: '', img: null })}
@@ -246,13 +246,13 @@ function App() {
         {/* SCENE 09: SOCIAL IMAGES */}
         <div className="scene social-grid">
           <div className="ph-img" style={{ gridColumn: '1 / 6', height: '60vh' }}>
-            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800" className="social-img" alt=""/>
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800" className="social-img" alt="" />
           </div>
           <div className="ph-img" style={{ gridColumn: '8 / 13', height: '40vh', marginTop: '20vh' }}>
-             <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800" className="social-img" alt=""/>
+            <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800" className="social-img" alt="" />
           </div>
           <div className="ph-img" style={{ gridColumn: '3 / 9', height: '80vh', marginTop: '10vh' }}>
-             <img src="https://images.unsplash.com/photo-1528605105345-5344ea20e269?w=800" className="social-img" alt=""/>
+            <img src="https://images.unsplash.com/photo-1528605105345-5344ea20e269?w=800" className="social-img" alt="" />
           </div>
         </div>
 
@@ -261,10 +261,10 @@ function App() {
           <div className="t-giant" style={{ lineHeight: 0.8 }}>READY</div>
           <div className="t-giant" style={{ lineHeight: 0.8, marginLeft: '10vw' }}>TO</div>
           <div className="t-giant" style={{ lineHeight: 0.8 }}>BUILD?</div>
-          
+
           <div style={{ marginTop: '10vw', display: 'flex', justifyContent: 'flex-end' }}>
-            <div 
-              className="t-meta" 
+            <div
+              className="t-meta"
               style={{ fontSize: '1.5rem', cursor: 'pointer', borderBottom: '2px solid white', paddingBottom: '0.5vw' }}
               onMouseEnter={() => setCursorState({ active: true, text: 'JOIN', img: null })}
               onMouseLeave={() => setCursorState({ active: false, text: '', img: null })}
