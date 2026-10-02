@@ -27,7 +27,7 @@ function App() {
 
   // Smooth scroll
   useEffect(() => {
-    const lenis = new Lenis({ duration: 1.5, smooth: true });
+    const lenis = new Lenis({ duration: 1.5 });
     const raf = (time: number) => { lenis.raf(time); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
 
@@ -52,10 +52,6 @@ function App() {
   const { scrollYProgress: statsProgress } = useScroll({ target: statsRef, offset: ["start start", "end end"] });
   const stat1Y = useTransform(statsProgress, [0, 0.33], ["0%", "-100%"]);
   const stat1Opacity = useTransform(statsProgress, [0, 0.33], [1, 0]);
-  const stat2Y = useTransform(statsProgress, [0.33, 0.66], ["100%", "0%"]);
-  const stat2Opacity = useTransform(statsProgress, [0.33, 0.66], [0, 1]);
-  const stat2Out = useTransform(statsProgress, [0.66, 0.99], ["0%", "-100%"]);
-  const stat2OpacityOut = useTransform(statsProgress, [0.66, 0.99], [1, 0]);
 
   const techRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: techProgress } = useScroll({ target: techRef, offset: ["start start", "end end"] });
