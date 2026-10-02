@@ -124,6 +124,10 @@ body {
   padding: 5vw;
 }
 
+.menu-link-wrapper {
+  overflow: hidden;
+}
+
 .menu-link {
   font-size: clamp(3rem, 8vw, 8rem);
   font-weight: 800;
@@ -132,12 +136,20 @@ body {
   letter-spacing: -0.04em;
   margin-bottom: 2vh;
   cursor: pointer;
-  overflow: hidden;
+  transition: color 0.3s;
+}
+
+.menu-link:hover {
+  color: var(--accent);
+}
+
+.active-link {
+  color: var(--accent);
 }
 
 /* Typography Classes */
 .t-giant {
-  font-size: clamp(5rem, 18vw, 25rem);
+  font-size: clamp(3.5rem, 18vw, 25rem);
   font-weight: 800;
   line-height: 0.8;
   letter-spacing: -0.05em;
@@ -145,7 +157,7 @@ body {
 }
 
 .t-large {
-  font-size: clamp(3rem, 10vw, 15rem);
+  font-size: clamp(2.5rem, 10vw, 15rem);
   font-weight: 800;
   line-height: 0.85;
   letter-spacing: -0.04em;
@@ -153,14 +165,14 @@ body {
 }
 
 .t-medium {
-  font-size: clamp(1.5rem, 4vw, 5rem);
+  font-size: clamp(1.2rem, 4vw, 5rem);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 .t-meta {
-  font-size: 0.75rem;
+  font-size: clamp(0.6rem, 1vw, 1rem);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -204,7 +216,7 @@ body {
 }
 
 .row-title {
-  font-size: clamp(3rem, 9vw, 12rem);
+  font-size: clamp(2rem, 9vw, 12rem);
   font-weight: 800;
   line-height: 0.8;
   letter-spacing: -0.04em;
@@ -234,7 +246,7 @@ body {
 }
 
 .person-name {
-  font-size: clamp(2rem, 5vw, 7rem);
+  font-size: clamp(1.5rem, 5vw, 7rem);
   font-weight: 700;
   transition: all 0.5s ease;
 }
@@ -259,12 +271,60 @@ body {
   position: relative;
   overflow: hidden;
 }
-.ph-img::after {
-  content: "IMAGE PLACEHOLDER";
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0.8rem;
-  color: #555;
-  white-space: nowrap;
+
+/* Magnetic Button */
+.magnetic-btn {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+.magnetic-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mobile Responsiveness Polish */
+@media (max-width: 768px) {
+  .nav { padding: 5vw; }
+  .t-meta { font-size: 0.8rem; }
+  
+  .editorial-row {
+    flex-direction: column;
+    gap: 3vw;
+  }
+  .row-id, .row-meta {
+    width: 100% !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+  .row-title { margin-top: 2vw; }
+  
+  .person-row {
+    flex-direction: column;
+    gap: 2vw;
+  }
+  
+  .social-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .ph-img {
+    height: 40vh !important;
+    margin-top: 5vh !important;
+  }
+  
+  .stats-scene .t-giant { font-size: 4rem; }
+  .tech-scroll { gap: 12vw !important; padding-left: 10vw !important; }
+  
+  .cta-to { margin-left: 0 !important; }
 }
