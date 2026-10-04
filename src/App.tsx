@@ -9,7 +9,10 @@ import Cursor from './components/Cursor';
 import Navigation from './components/Navigation';
 import Preloader from './components/Preloader';
 import Home from './pages/Home';
-import GenericPage from './pages/GenericPage';
+import About from './pages/About';
+import Events from './pages/Events';
+import Projects from './pages/Projects';
+import Team from './pages/Team';
 import PixelSnow from './components/PixelSnow';
 
 function App() {
@@ -49,10 +52,10 @@ function App() {
         {!loading && (
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<GenericPage title="ABOUT US" />} />
-            <Route path="/events" element={<GenericPage title="EVENTS" />} />
-            <Route path="/projects" element={<GenericPage title="PROJECTS" />} />
-            <Route path="/team" element={<GenericPage title="OUR TEAM" />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/team" element={<Team />} />
           </Routes>
         )}
       </Router>

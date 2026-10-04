@@ -184,6 +184,11 @@ main, nav, .menu-overlay, .preloader {
   text-transform: uppercase;
 }
 
+/* Inner page nav clearance — applied to <main> on all non-home pages */
+.inner-page > section:first-child {
+  padding-top: clamp(80px, 9vw, 130px) !important;
+}
+
 /* Scene Layouts */
 .scene {
   position: relative;
@@ -333,4 +338,35 @@ main, nav, .menu-overlay, .preloader {
   .tech-scroll { gap: 12vw !important; padding-left: 10vw !important; }
   
   .cta-to { margin-left: 0 !important; }
+}
+
+/* ─── Inner-page responsive grids ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  /* About */
+  section[style*="grid-template-columns: 1fr 1fr"],
+  section[style*="gridTemplateColumns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Stats row */
+  div[style*="repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Pillar cards */
+  div[style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Team grid */
+  div[style*="repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  div[style*="repeat(4, 1fr)"] { grid-template-columns: 1fr 1fr !important; }
+  div[style*="repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
+  div[style*="repeat(2, 1fr)"] { grid-template-columns: 1fr !important; }
 }

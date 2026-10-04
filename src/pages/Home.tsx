@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useCursor } from '../context/CursorContext';
 import { events, projects, people } from '../data/mockData';
+import githubPhoto from '../assets/github-event.jpg';
+
 
 const Home: React.FC = () => {
   const { setCursorState } = useCursor();
@@ -70,7 +72,8 @@ const Home: React.FC = () => {
           style={{ width: imgWidth, height: '70vh', position: 'relative' }}
           className="ph-img"
         >
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80" alt="Community" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={githubPhoto} alt="MLSC KBTCOE GitHub Event" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}>
             <div className="t-large" style={{ color: 'white', textShadow: '0 10px 30px rgba(0,0,0,0.5)', whiteSpace: 'nowrap' }}>THIS IS MSC</div>
           </div>
