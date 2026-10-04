@@ -6,7 +6,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 60 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: false, margin: '-15%' },
-  transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] },
+  transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] },
 };
 
 const About: React.FC = () => {
